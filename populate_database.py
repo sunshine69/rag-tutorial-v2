@@ -3,7 +3,7 @@ import os
 import shutil
 from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain_community.document_loaders import DirectoryLoader
-from langchain_community.document_loaders import TextLoader
+# from langchain_community.document_loaders import TextLoader
 
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain.schema.document import Document
@@ -76,7 +76,7 @@ def add_to_chroma(chunks: list[Document]):
         print("✅ No new documents to add")
 
 
-def calculate_chunk_ids(chunks):
+def calculate_chunk_ids(chunks: list[Document]):
 
     # This will create IDs like "data/monopoly.pdf:6:2"
     # Page Source : Page Number : Chunk Index

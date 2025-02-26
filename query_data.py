@@ -7,6 +7,8 @@ from get_embedding_function import get_embedding_function
 
 CHROMA_PATH = "chroma"
 
+# golang example https://github.com/devalexandre/youtube/blob/main/rag-qdrant-langchain/main.go
+
 def main():
     # Create CLI.
     parser = argparse.ArgumentParser()
@@ -26,13 +28,13 @@ def query_rag(query_text: str, model_name='qwen2.5-coder_7b-instruct-q2_K:custom
     if enable_context:
         print('Enabled context')
         PROMPT_TEMPLATE = """
-Answer the question based only on the following context:
+Answer using the provided documents if possible, but if no relevant information is found, please answer using your general knowledge and indicate that the answer is based on your broader training
 
 {context}
 
 ---
 
-Answer the question based on the above context: {question}
+Answer the question: {question}
 """
         embedding_function = get_embedding_function()
         db = Chroma(persist_directory=CHROMA_PATH, embedding_function=embedding_function)
