@@ -1,0 +1,12 @@
+pypdf
+langchain
+chromadb # Vector storage
+pytest
+boto3
+langchain_community
+langchain                                0.3.19
+langchain-chroma                         0.2.2
+langchain-community                      0.3.18
+langchain-core                           0.3.37
+langchain-ollama                         0.2.3
+langchain-text-splitters                 0.3.6
